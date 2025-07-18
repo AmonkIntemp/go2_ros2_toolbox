@@ -1,11 +1,12 @@
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription, DeclareLaunchArgument, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch.conditions import IfCondition
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 import os
+
 
 def generate_launch_description():
     ld = LaunchDescription()
@@ -64,10 +65,11 @@ def generate_launch_description():
         output='screen'
     )
 
+
     ld.add_action(go2_base_launch)
     ld.add_action(pointcloud_process_launch)
-    ld.add_action(slam_toolbox_launch)
-    ld.add_action(nav2_launch)
+    # ld.add_action(slam_toolbox_launch)
+    ld.add_action(TimerAction(period=5.0,actions=[nav2_launch]))
     ld.add_action(rviz_node)
 
     return ld
