@@ -69,7 +69,7 @@ def generate_launch_description():
     ld.add_action(go2_base_launch)
     ld.add_action(pointcloud_process_launch)
     # ld.add_action(slam_toolbox_launch)
-    ld.add_action(TimerAction(period=5.0,actions=[nav2_launch]))
-    ld.add_action(rviz_node)
+    # ld.add_action(TimerAction(period=5.0,actions=[nav2_launch]))
+    # ld.add_action(rviz_node)
 
     return ld

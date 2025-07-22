@@ -27,12 +27,12 @@ install(
 )
 
 install(
-  DIRECTORY maps
+  DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
 
 install(
-  DIRECTORY launch
+  DIRECTORY maps
   DESTINATION share/${PROJECT_NAME}
 )
 
